@@ -1,0 +1,67 @@
+<%- include('../header') %>
+
+<div class="container border rounded-3 shadow-sm">
+            
+    <form method="POST" action="/user/create" >
+            <div class="mb-3">
+                <h1 class="text-center">Create account</h1>
+            </div>
+            <div class="mb-3">
+               <label class="form-label">First Name</label>
+               <input class="form-control" type="text" name="firstName" placeholder="First name"/>
+               <% if(error.firstName){ %>
+                  <div class="alert alert-danger mt-1" role="alert">
+                     The first name must contain more than 3 non-numeric characters.
+                 </div>
+               <% } %>
+             </div>
+             <div class="mb-3">
+                <label class="form-label">Last Name</label>
+                <input class="form-control" type="text" name="lastName" placeholder="Last name"/>
+                <% if(error.lastName){ %>
+                  <div class="alert alert-danger mt-1" role="alert">
+                     The first name must contain more than 3 non-numeric characters.
+                 </div>
+               <% } %>
+             </div>
+             <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input class="form-control" type="text" name="email" placeholder="Email"/>
+                <% if(error.email){ %>
+                  <div class="alert alert-danger mt-1" role="alert">
+                     The email format is incorrect.
+                 </div>
+               <% } %>
+               <% if(error.emailExist){ %>
+                  <div class="alert alert-danger mt-1" role="alert">
+                     This email is not available.
+                 </div>
+               <% } %>
+             </div>
+             <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input class="form-control" type="password" name="password" placeholder="Password"/>
+                <% if(error.password){ %>
+                  <div class="alert alert-danger mt-1" role="alert">
+                     The password must contain more than 8 characters.
+                 </div>
+               <% } %>   
+            </div>
+             <div class="mb-3">
+                <label class="form-label">Password confirm</label>
+                <input class="form-control" type="password" name="passwordConfirm" placeholder="Password confirm"/>
+                <% if(error.passwordConfirm){ %>
+                  <div class="alert alert-danger mt-1" role="alert">
+                     The password is not same
+                 </div>
+               <% } %> 
+            </div>
+            <div class="mb-3 text-center">
+                <input class="btn btn-success" type="submit" value="Create">
+            </div>
+    </form>
+
+</div>
+
+
+<%- include('../footer') %>

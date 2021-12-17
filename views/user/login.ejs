@@ -1,0 +1,30 @@
+<%- include('../header') %>
+
+<div class="container border rounded-3 shadow-sm">
+            
+    <form method="POST" action="/user/connection">
+        <div class="mb-3">
+            <h1 class="text-center">Login</h1>
+        </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input class="form-control" type="text" name="email" placeholder="Email"/>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input class="form-control" type="password" name="password" placeholder="Password"/>
+            </div>
+            <% if(error.password || error.email){ %>
+                <div class="alert alert-danger mt-1" role="alert">
+                    Wrong credential
+               </div>
+             <% } %>
+        <div class="mb-3 text-center">
+            <input class="btn btn-success" type="submit" value="Connection">
+        </div>
+    </form>
+
+</div>
+
+
+<%- include('../footer') %>
